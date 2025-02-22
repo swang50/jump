@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Jump Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            width: 100px;
+            height: 35px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="leftBox" value="abc">
+    <button id="jumpButton" onclick="jumpText()">JUMP ></button>
+    <input type="text" id="rightBox" value="" disabled>
+
+    <script>
+        function jumpText() {
+            let leftBox = document.getElementById("leftBox");
+            let rightBox = document.getElementById("rightBox");
+            let button = document.getElementById("jumpButton");
+
+            if (leftBox.value !== "") {
+                rightBox.value = leftBox.value;
+                leftBox.value = "";
+                button.textContent = "< JUMP";
+            } else {
+                leftBox.value = rightBox.value;
+                rightBox.value = "";
+                button.textContent = "JUMP >";
+            }
+        }
+    </script>
+</body>
+</html>
